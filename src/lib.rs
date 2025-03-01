@@ -310,7 +310,7 @@ pub fn xkbcommon_option() -> Option<&'static XkbCommon> {
     XKBCOMMON_OPTION
         .get_or_init(|| {
             open_with_sonames(
-                &["libxkbcommon.so.0", "libxkbcommon.so"],
+                &["libxkbcommon.so.0", "libxkbcommon.so", "libxkbcommon.so.3.0"],
                 None,
                 |name| unsafe { XkbCommon::open(name) },
             )
@@ -327,7 +327,7 @@ pub fn xkbcommon_compose_option() -> Option<&'static XkbCommonCompose> {
     XKBCOMMON_COMPOSE_OPTION
         .get_or_init(|| {
             open_with_sonames(
-                &["libxkbcommon.so.0", "libxkbcommon.so"],
+                &["libxkbcommon.so.0", "libxkbcommon.so", "libxkbcommon.so.3.0"],
                 Some("compose"),
                 |name| unsafe { XkbCommonCompose::open(name) },
             )
